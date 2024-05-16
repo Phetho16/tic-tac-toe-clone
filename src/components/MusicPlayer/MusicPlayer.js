@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { MusicPlayerWrapper } from "./MusicPlayer.styled";
-import playList from "../../utils/MusicUtils/playList";
+import playList from "../utils/MusicUtils/playList";
 import { randomizeIndex } from "../../utils/MusicUtils";
 import { PlayIcon, PauseIcon, NextIcon } from "./MusicPlayer.styled";
 
