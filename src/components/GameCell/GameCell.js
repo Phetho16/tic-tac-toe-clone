@@ -1,31 +1,53 @@
 import React, { useContext } from "react";
 import { CellStyle } from "./GameCell.styled";
 import { GameContext } from "../../contexts/GameContext";
+import {ModalContext} from '../../contexts/ModalContext'
+import RoundOverModal from "../../Modal/RoundOverModal/RoundOverModal";
 import { checkForWinner } from "../../utils/GameUtils";
-import { ReactComponent as IconX } from "../../assests/Logo.svg/cross-svgrepo-com.svg";
-import { ReactComponent as IconO } from "../../assests/Logo.svg/circle-svgrepo-com.svg";
+import { ReactComponent as IconX } from "../../assests/Logo.svg/icon-x.svg";
+import { ReactComponent as IconO } from "../../assests/Logo.svg/icon-o.svg";
+import { ReactComponent as XIconOutline } from "../../assests/Logo.svg/icon-x-outline.svg";
+import { ReactComponent as OIconOutline } from "../../assests/Logo.svg/icon-o-outline.svg";
+
+
+
 
 
 const GameCell = ({ cellItem, index }) => {
-  const { updateBoard, game} = useContext(GameContext);
+  const { updateBoard, game, roundComplete} = useContext(GameContext);
+const {handleModal} = useContext(ModalContext)
+
 
   const cellClickHandler = () => {
-    updateBoard(index)
-    checkForWinner(game.board)
+    updateBoard(index);
+    const result = checkForWinner(game.board)
+    if(result){
+      roundComplete(result)
+      handleModal(<RoundOverModal/>)
+    }
 
-    // if(result){
-    //   updateBoard(index)
-    // }
-  
+    
   };
-  if(cellItem === "x") {
-    return(<IconX/>)
-
-  } else if(cellItem === "o") {
-    return(<IconO/>)
-
+  if (cellItem === "x") {
+    return (
+      <CellStyle>
+        <IconX className="markedItem"/>
+      </CellStyle>
+    );
+  } else if (cellItem === "o") {
+    return (
+      <CellStyle>
+        <IconO  className="markedItem"/>
+      </CellStyle>
+    );
   }
-  return (<CellStyle onClick={cellClickHandler}>(game.turn === )</CellStyle>);
+  return (
+    <CellStyle onClick={cellClickHandler}>
+      {game.turn === "x" ? 
+      <XIconOutline className="outlineIcon"/> :
+       <OIconOutline  className="outlineIcon"/>}
+    </CellStyle>
+  );
 };
 
 export default GameCell;
