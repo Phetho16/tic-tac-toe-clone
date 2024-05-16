@@ -13,7 +13,8 @@ import { ReactComponent as OIconOutline } from "../../assests/Logo.svg/icon-o-ou
 
 
 
-const GameCell = ({ cellItem, index }) => {
+const GameCell = ({ cellItem, index, isWinningCell}) => {
+  console.log(isWinningCell)
   const { updateBoard, game, roundComplete} = useContext(GameContext);
 const {handleModal} = useContext(ModalContext)
 
@@ -21,6 +22,7 @@ const {handleModal} = useContext(ModalContext)
   const cellClickHandler = () => {
     updateBoard(index);
     const result = checkForWinner(game.board)
+    console.log(result)
     if(result){
       roundComplete(result)
       handleModal(<RoundOverModal/>)
@@ -30,13 +32,13 @@ const {handleModal} = useContext(ModalContext)
   };
   if (cellItem === "x") {
     return (
-      <CellStyle>
+      <CellStyle isWinningCell={isWinningCell ?? false}>
         <IconX className="markedItem"/>
       </CellStyle>
     );
   } else if (cellItem === "o") {
     return (
-      <CellStyle>
+      <CellStyle isWinningCell={isWinningCell ?? false}>
         <IconO  className="markedItem"/>
       </CellStyle>
     );

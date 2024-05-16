@@ -13,7 +13,7 @@ const RoundOverModal = () => {
   return (
     <>
       <ModalHeader>
-        {" "}
+        
         <Title primary>
           {game.roundWinner
             ? ` ${game.roundWinner.name}  Wins This Round!`
@@ -21,13 +21,13 @@ const RoundOverModal = () => {
         </Title>
       </ModalHeader>
       <ModalBody>
-        {" "}
+        
         <SubTilte primary> Choices will be switched now.</SubTilte>
         <SubTilte primary>
-          {game.player1.name}: {game.player1.score}{" "}
+          {game.player1.name}: {game.player1.score}
         </SubTilte>
         <SubTilte primary>
-          {game.player2.name}: {game.player2.score}{" "}
+          {game.player2.name}: {game.player2.score}
         </SubTilte>
       </ModalBody>
       <ModalFooter>

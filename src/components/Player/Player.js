@@ -3,10 +3,10 @@ import { AvatarWrapper, PlayerWrapper } from "./Player.styled";
 import Avatar from 'react-nice-avatar'
 import { SubTilte } from "../../styles/General.styled";
 
-const Player = ({ player, isplayeractive}) => {
+const Player = ({ player, isPlayerActive}) => {
   return (
     <PlayerWrapper>
-      <AvatarWrapper isplayeractive={isplayeractive ?? "false"}>
+      <AvatarWrapper isPlayerActive={isPlayerActive ?? false}>
       <Avatar {...player.avatarConfig} />
       </AvatarWrapper>
 

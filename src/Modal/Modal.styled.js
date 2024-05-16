@@ -23,7 +23,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-color: ${(props) => props.theme.colors.primary};
+background-color: ${(props) => props.theme.colors.secondary};
 
 
 ${(props) => props.theme.media.mobile} {

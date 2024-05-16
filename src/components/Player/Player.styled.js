@@ -20,7 +20,7 @@ export const AvatarWrapper = styled.div`
     display: flex;
     width: 10rem ;
     height: 10rem ;
-    filter: ${(props) => (props.isplayeractive ? "" : "grayscale(90%)")};
+    filter: ${(props) => (props.isPlayerActive ? "" : "grayscale(90%)")};
 
     ${(props) => props.theme.media.mobile} {
         width: 6rem ;

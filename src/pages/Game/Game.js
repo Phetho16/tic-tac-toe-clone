@@ -8,15 +8,16 @@ import Player from "../../components/Player/Player";
 const Game = () => {
   const { game } = useContext(GameContext);
 
+
+
   return (
     <Container>
       <Player
         player={game.player1}
-        isPlayerActive={game.player1.choice === game.turn}
-      />
+        isPlayerActive={game.player1.choice === game.turn}/>
       <GameBoardStyle>
         {game.board.map((item, index) => (
-          <GameCell key={index} cellItem={item} index={index} />
+          <GameCell key={index} cellItem={item} index={index} isWinningCell = {game.winningCombo.includes(index)}/>
         ))}
       </GameBoardStyle>
       <Player
