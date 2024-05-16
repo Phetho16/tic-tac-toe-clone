@@ -8,7 +8,8 @@ const useSound = (url, options) => {
       audio.load();
       audio.volume = options.volume;
       setSound(audio);
-    }, [])
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return () => {
         if(sound) {
