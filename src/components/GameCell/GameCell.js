@@ -25,7 +25,10 @@ const {handleModal} = useContext(ModalContext)
     console.log(result)
     if(result){
       roundComplete(result)
-      handleModal(<RoundOverModal/>)
+      setTimeout(() => {
+        handleModal(<RoundOverModal/>)
+      }, 1500)
+    
     }
 
     

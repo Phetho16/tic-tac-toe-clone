@@ -22,6 +22,7 @@ export const GameContextProvider = (props) => {
     },
     turn: "x",
     roundWinner: "",
+    winningCombo:[]
   
   });
 
@@ -40,6 +41,8 @@ export const GameContextProvider = (props) => {
       ...game,
       board: [null, null, null, null, null, null, null, null, null],
       turn: "x",
+      roundWinner: "",
+      winningCombo: []
     });
   };
 
@@ -62,7 +65,7 @@ export const GameContextProvider = (props) => {
       },
       turn: "x",
       roundWinner: "",
-      winningCombo: null
+      winningCombo: []
     });
   };
 
@@ -98,7 +101,7 @@ export const GameContextProvider = (props) => {
           score: prevGame.player2.score + 0.5,
         },
         roundWinner: "",
-        winningCombo: null
+        winningCombo: [0,1,2,3,4,5,6,7,8]
       }));
     } else {
       setGame((prevGame) => ({
